@@ -5,14 +5,13 @@ import time
 #global vars that will be used
 num = random.randint(1, 10)
 bet = ""
-result = 0
+result = ""
 #making the flip coin function
 def coinflip(guess):
     if guess == 1:
         bet = "Heads"
     if guess == 2:
         bet = "Tails"
-    result = 0
     if num % 2 == 0:
         result = "Heads"
     else:
@@ -22,7 +21,7 @@ def coinflip(guess):
     print("Flipping Coin...")
     time.sleep(2)
     print("Coin dropped, facing on its {result} side".format(result = result))
-    time.sleep(2)
+    time.sleep(1)
     if bet == result:
         print ("You Won")
     else:
@@ -30,11 +29,17 @@ def coinflip(guess):
     return
     
 #focusing on console output, facing errors like another number or a letter instead of the values i want the user to input
-try:
-    guess = int(input("Welcome to coinflip game, please press 1 for Heads or 2 for Tails:"))
-    if guess < 1 or guess > 2:
+while True:
+    try:
+        guess = int(input("Welcome to coinflip game, please press 1 for Heads or 2 for Tails:"))
+    except ValueError:
         print ("please enter a valid option")
+        continue
+    if guess < 1 or guess > 2:
+        print ("please enter a valid number")
+        continue
     else:
-        coinflip(guess)
-except ValueError:
-    print ("please enter a valid option")
+        break
+
+coinflip(guess)
+
