@@ -1,5 +1,5 @@
 #PROJECT FOR CODECADEMY COMP-SCI PATH: COIN FLIP
-#importing random to randomize result, and time to insert pause between print lines
+#importing random to create a random response to coin flip, and time to insert pause between print lines
 import random
 import time
 #global vars that will be used
@@ -40,6 +40,6 @@ while True:
         continue
     else:
         break
-
+#playing the game
 coinflip(guess)
 
